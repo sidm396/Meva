@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="action_houzz_config" model="ir.actions.act_window">
+        <field name="name">Houzz Profile</field>
+        <field name="res_model">houzz.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_houzz_import" model="ir.actions.act_window">
+        <field name="name">Order Import</field>
+        <field name="res_model">houzz.order.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- <record id="action_houzz_stock" model="ir.actions.act_window">
+        <field name="name">Update Stock</field>
+        <field name="res_model">houzz.stock</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record> -->
+
+    <record id="action_houzz_payments" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">houzz.payments</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_houzz_payments_import" model="ir.actions.act_window">
+        <field name="name">Payments Import</field>
+        <field name="res_model">houzz.payments.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem id="menu_houzz"
+        name="HOUZZ API"
+        sequence="10" 
+         web_icon="houzz_api-master,static/description/icon.png"
+        />
+
+    <!-- Orders Menu -->
+    <menuitem id="menu_houzz_order_tree" 
+        name="Order Manage" 
+        parent="menu_houzz" 
+        sequence="8"/>
+
+    <menuitem id="menu_houzz_order_list"
+        name="Order List" 
+        parent="menu_houzz_order_tree"
+        action="houzz_order_list" 
+        sequence="1" />
+
+    <menuitem id="houzz_import"
+        name="Order Import" 
+        parent="menu_houzz_order_tree" 
+        action="action_houzz_import" 
+        sequence="2" />
+
+    <!-- menu Stock -->
+    <menuitem id="houzz_stock" 
+        name="Stock" 
+        parent="menu_houzz" 
+        sequence="9" />
+
+    <!-- <menuitem id="houzz_update_stock"
+        name="Update Stock"
+        parent="houzz_stock" 
+        action="action_houzz_stock"
+        sequence="1" /> -->
+
+    <!-- Menu Payments -->
+    <menuitem id="houzz_payments"
+        name="Payments"
+        parent="menu_houzz"
+        sequence="10"/>
+
+    <menuitem id="houzz_payments_list" 
+        action="action_houzz_payments"
+        name="Payments List"
+        parent="houzz_payments"
+        sequence="13"/>
+
+    <menuitem id="houzz_payments_import"
+        action="action_houzz_payments_import"
+        name="Payments Import"
+        parent="houzz_payments"
+        sequence="14"/>
+
+    <!-- Menu Configuration -->
+    <menuitem id="menu_houzz_config"
+        name="Configuration"
+        parent="menu_houzz"
+        sequence="20" />
+
+    <menuitem id="menu_houzz_config_setting"
+        name="Configuration"
+        parent="menu_houzz_config"
+        action="action_houzz_config"
+        sequence="30" />
+
+</odoo>

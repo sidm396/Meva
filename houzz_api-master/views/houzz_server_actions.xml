@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="action_shipping_label" model="ir.actions.server">
+      <field name="name">Shipping Label</field>
+      <field name="type">ir.actions.server</field>
+      <field name="state">code</field>
+      <field name="model_id" ref="model_stock_picking"/>
+      <field name="binding_model_id" ref="model_stock_picking"/>
+      <field name="code">model.preview_shipping_label()</field>
+    </record>
+
+    <record id="action_picking_slip" model="ir.actions.server">
+      <field name="name">Picking Slip</field>
+      <field name="type">ir.actions.server</field>
+      <field name="state">code</field>
+      <field name="model_id" ref="model_stock_picking"/>
+      <field name="binding_model_id" ref="model_stock_picking"/>
+      <field name="code">model.preview_packing_slip()</field>
+    </record>
+  </data>
+</odoo>
