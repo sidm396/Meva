@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="houzz_order_regular_update" model="ir.cron">
+    <field name="name">Houzz Order Sync</field>
+    <field name="model_id" ref="model_houzz_order_import"/>
+    <field name="state">code</field>
+    <field name="code">model.auto_import_order()</field>
+    <field name="interval_number">30</field>
+    <field name="interval_type">minutes</field>
+    <field name="numbercall">-1</field>
+  </record>
+
+  <record id="view_form_houzz_order_import" model="ir.ui.view">
+    <field name="name">houzz_order_import</field>
+    <field name="model">houzz.order.import</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="houzz" />
+        </group>
+        <group>
+          <field name="order_status" />
+        </group>
+        <group>
+          <field name="order_form" />
+        </group>
+        <group>
+          <field name="order_to" />
+        </group>
+        <group>
+          <group>
+            <field name="order_start" />
+          </group>
+          <group>
+            <field name="order_limit" />
+          </group>
+        </group>
+
+        <footer>
+          <button type="object" name="do_order_import" string="Import Order" class="oe_highlight"/>
+          <button special="cancel" string="Cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_form_houzz_payments_import" model="ir.ui.view">
+    <field name="name">view.houzz.payments.import</field>
+    <field name="model">houzz.payments.import</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="houzz" />
+        </group>
+        <group>
+          <field name="from_date" />
+        </group>
+        <group>
+          <field name="to_date" />
+        </group>
+
+        <footer>
+          <button type="object" name="do_import" string="Import Order" class="oe_highlight"/>
+          <button special="cancel" string="Cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+</odoo>
